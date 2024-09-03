@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.UserService;
 import com.javaex.vo.UserVo;
@@ -77,6 +78,33 @@ public class UserController {
 		//메인페이지로 리다이렉트
 		return "redirect:/main";
 	}
+	
+	/*id check*/
+	@RequestMapping(value="/api/user/idcehck", method = {RequestMethod.GET, RequestMethod.POST})
+	public boolean idCheck(@RequestParam(value="id") String id ) {
+		System.out.println("UserController.idCheck()");
+		System.out.println(id);
+		boolean can = userService.exeIdChekc(id);
+		return can;
+	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

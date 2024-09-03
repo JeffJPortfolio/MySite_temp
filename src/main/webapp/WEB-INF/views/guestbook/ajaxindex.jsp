@@ -119,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function(){
   	
   	
   	
-  	
 });
 
 
@@ -250,5 +249,8 @@ function render(guestbookVo, dir){
 
 
 </body>
+
+</html>
+
 
 </html>

@@ -10,6 +10,9 @@
 <link href="http://localhost:8888/mysite/assets/css/mysite.css" rel="stylesheet" type="text/css">
 <link href="/mysite/assets/css/user.css" rel="stylesheet" type="text/css">
 
+<!-- Axios 라이브러리 포함 -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -135,12 +138,82 @@
 		<!-- //container  -->
 		
 		<div id="footer">
-			Copyright ⓒ 2020 황일영. All right reserved
+
 		</div>
 		<!-- //footer -->
 
 	</div>
 	<!-- //wrap -->
+
+<script>
+	document.addEventListener('DOMContentLoaded' function() {
+	console.log("DOM tree 완성");
+	
+	let btnIdCheck = document.querySelector('#btnIdCheck');
+	btnIdCheck.addEventListender('click', function(){
+		console.log('클릭');
+		
+		// data collect
+		let txtIdTag = document.querySelector('#input-uid');
+		let id = txtIdTag.value;
+		let uservo = {
+			id: id
+		}
+		
+		//요청 (통신)
+		axios({
+			method: 'get',           // put, post, delete                   
+			url: '${pageContext.request.contextPath}/api/user/idcheck',
+			headers: {"Content-Type" : "application/json; charset=utf-8"}, //전송타입
+			params: {id: id}  //get방식 파라미터로 값이 전달
+	        //data: guestbookVo,   //put, post, delete 방식 자동으로 JSON으로 변환 전달
+
+			responseType: 'json' //수신타입  
+	    }).then(function (response) {
+	        console.log(response.data); //수신데이타
+			
+	    }).catch(function (error) {
+	        console.log(error);
+	    
+	    });		
+	});
+});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>
 
 </body>
 

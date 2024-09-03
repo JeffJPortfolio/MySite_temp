@@ -57,7 +57,13 @@ public class GuestbookDao {
 	}
 
 	
-	
+	//id로 데이터 가져오기- id 사용여부 체크할때 사용
+	public void selectUserByID(String id) {
+		System.out.println("GuestbooDao.guestbookSelectOne()");
+		System.out.println(id);
+		
+		sqlSession.selectOne("user.selectById", id);
+	}
 	
 	
 	

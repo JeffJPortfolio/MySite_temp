@@ -29,4 +29,17 @@ public class UserService {
 		
 	}
 	
+	public boolean exeIdChekc(String id) {
+		System.out.println("UserService.exe");
+		
+		int count = userDao.selectUserByID(id);
+		if (count >= 1) {
+			return false;
+		} else {
+			return true;
+		}
+		
+
+	}
+	
 }
